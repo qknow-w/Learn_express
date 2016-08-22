@@ -1,28 +1,20 @@
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize('people', 'root', 'root', {
-  host: 'localhost',
-  dialect: 'mysql',
-  port: 3306,
-  pool: {
-    max: 5,
-    min: 0,
-    idle: 10000
+var mongoose = require('mongoose');
+var config   = require('../config/config.default');
+var logger = require('../common/logger')
+
+
+//connet mongodb
+mongoose.connect(config.db, {
+  server: {poolSize: 20}
+}, function (err) {
+  if (err) {
+    logger.error('connect to %s error: ', config.db, err.message);
+    process.exit(1);
   }
 });
 
+// models
+require('./user');
 
-// test connect
-sequelize
-  .authenticate()
-  .then(function(err) {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(function (err) {
-    console.log('Unable to connect to the database:', err);
-  });
 
-exports.User =  sequelize.define('user',require('./user'));
-
-//{ force: true }   每次都会删之前的tabel
-//sequelize.sync({ force: true });
-sequelize.sync();
+exports.User =  mongoose.model('User');;

@@ -1,14 +1,12 @@
-const Sequelize = require('sequelize');
+const mongoose  = require('mongoose');
+const Schema    = mongoose.Schema;
+
+var UserSchema = new Schema({
+  name: { type: String},
+  loginname: { type: String},
+  pass: { type: String },
+  email: { type: String}
+});
 
 
-//数据模型
-module.exports = {
-  id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
-    primaryKey: true,
-    unique: true
-  },
-  username: Sequelize.STRING,
-  birthday: Sequelize.DATE
-};
+mongoose.model('User', UserSchema);

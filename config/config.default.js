@@ -1,13 +1,8 @@
 var config = {
 
-  debug: false,
-  //mysql 配置
-  connectionLimit : 10,
-  host     : '127.0.0.1',
-  port     : 3306,
-  user     : 'root',
-  password : 'root',
-  database : 'people'
+  debug: true,
+  // mongodb 配置
+  db: 'mongodb://127.0.0.1/shop',
 }
 
 

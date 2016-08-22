@@ -11,11 +11,12 @@
     "debug": "~2.2.0",
     "errorhandler": "^1.4.3",
     "express": "~4.13.4",
-    "jade": "~1.11.0",
+    "express-cors": "0.0.3",
+    "jade": "^1.11.0",
     "log4js": "^0.6.37",
+    "mongodb": "^2.2.7",
+    "mongoose": "^4.5.9",
     "morgan": "~1.7.0",
-    "mysql": "^2.11.1",
-    "sequelize": "^3.23.4",
     "serve-favicon": "~2.3.0"
   }
 }
